@@ -6,6 +6,7 @@ import logo from '../../assets/images/blue-logo.png';
 
 interface PageHeaderProps {
     title: string;
+    subtitle?: string;
 }
 
 const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
@@ -21,6 +22,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
 
             <div className="header-content">
                 <strong>{props.title}</strong>
+                { props.subtitle && <p>{props.subtitle}</p>}
                 
                 {props.children}
             </div>

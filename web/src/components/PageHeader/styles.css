@@ -21,7 +21,7 @@
 
 .page-header .top-bar-container a svg {
     font-size: 4rem;
-    color: var(--color-secundary-darker);
+    color: var(--color-secondary-darker);
 }
 
 .page-header .top-bar-container a:hover {
@@ -43,6 +43,14 @@
     font: 700 3.2rem Archivo;
     line-height: 4.2rem;
     color: var(--color-title-in-primary);
+}
+
+.page-header .header-content p {
+    max-width: 30rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: var(--color-text-in-primary);
+    margin-top: 2.4rem;
 }
 
 @media (min-width: 700px) {

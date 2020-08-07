@@ -62,11 +62,11 @@
 
 .buttons-container a.student{
     background: var(--color-warning);
-    color: var(--color-secundary-darker);
+    color: var(--color-secondary-darker);
 }
 
 .buttons-container a.student svg {
-    color: var(--color-secundary-darker);
+    color: var(--color-secondary-darker);
     margin-right: 1rem;
     font-size: 3rem;
 }
@@ -77,14 +77,14 @@
 }
 
 .buttons-container a.teacher{
-    background: var(--color-secundary);
+    background: var(--color-secondary);
 }
 
 .buttons-container a.student:hover{
     background: var(--color-warning-dark);
 }
 .buttons-container a.teacher:hover{
-    background: var(--color-secundary-dark);
+    background: var(--color-secondary-dark);
 }
 
 .buttons-container img {
