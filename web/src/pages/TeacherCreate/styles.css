@@ -26,6 +26,12 @@
     padding: 0 2.4rem;
 }
 
+#page-teacher-create main fieldset .input-block + .input-block,
+#page-teacher-create main fieldset .input-block + .textarea-block,
+#page-teacher-create main fieldset .select-block + .input-block {
+    margin-top: 1.4rem;
+}
+
 #page-teacher-create main fieldset + fieldset {
     margin-top: 6.4rem;
 }
@@ -40,6 +46,19 @@
     width: 100%;
     padding-bottom: 1.6rem;
     border-bottom: 1px solid var(--color-line-in-white);
+}
+
+#page-teacher-create main fieldset legend button {
+    background: none;
+    border: 0;
+    color: var(--color-primary);
+    font: 700 1.6rem Archivo;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#page-teacher-create main fieldset legend button:hover {
+    color: var(--color-primary-dark);
 }
 
 #page-teacher-create main footer {
@@ -96,6 +115,16 @@
 
     #page-teacher-create main fieldset {
         padding: 0 6.4rem;
+    }
+
+    #page-teacher-create main .schedule-item {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        column-gap: 1.6rem;
+    }
+
+    #page-teacher-create main .schedule-item .input-block {
+        margin-top: 0 !important;
     }
 
     #page-teacher-create main footer {
