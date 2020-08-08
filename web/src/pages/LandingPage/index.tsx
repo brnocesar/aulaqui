@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChalkboardTeacher, FaHeart } from 'react-icons/fa';
 import { IoMdSchool } from 'react-icons/io';
+import api from '../../services/api';
 import './styles.css';
 import logo from '../../assets/images/white-logo.png';
 import landingImage from '../../assets/images/landing.svg';
 
 
 function LandingPage() {
+    const [totalConnections, setTotalConnections] = useState(0);
+
+    useEffect(() => {
+        api.get('conexoes').then(response => {
+            setTotalConnections(response.data.total);
+        });
+    }, []);
+
     return (
         <div id="page-landing">
             <div id="page-landing-content" className="container">
@@ -30,7 +39,7 @@ function LandingPage() {
                 </div>
 
                 <span className="total-connections">
-                    Total de xxx conexões realizadas <FaHeart />
+                    Total de {totalConnections} conexões realizadas <FaHeart />
                 </span>
             </div>
         </div>
