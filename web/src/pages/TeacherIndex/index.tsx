@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
+import { BsSearch } from 'react-icons/bs';
+import api from '../../services/api';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
 import FormField from '../../components/FormField';
-import TeacherItem from '../../components/TeacherItem';
+import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import './styles.css';
 
 
 function TeacherIndex() {
+    const [teachers, setTeachers] = useState<Teacher[]>([]);
+    const [subject, setSubject] = useState('');
+    const [week_day, setWeekDay] = useState('');
+    const [time, setTime] = useState('');
+
+    async function searchTeachers(event: FormEvent) {
+        event.preventDefault();
+
+        const response = await api.get('aulas', {
+            params: {
+                subject,
+                week_day,
+                time
+            }
+        });
+
+        setTeachers(response.data);
+    }
     
     return (
         <div id="page-teacher-index" className="container">
             <PageHeader title="Tenha aula com os melhores professores sem sair de casa">
-                <form id="search-teachers">
+                <form id="search-teachers" onSubmit={searchTeachers}>
                     <Select
                         name="subject"
                         label="Matéria"
+                        disabledOptions="Selecione uma matéria"
+                        value={subject}
+                        onChange={(event) => {setSubject(event.target.value)}}
                         options={[
                             { value: 'Artes', label: 'Artes' },
                             { value: 'Física', label: 'Física' },
@@ -24,6 +47,9 @@ function TeacherIndex() {
                     <Select
                         name="week_day"
                         label="Dia da semana"
+                        disabledOptions="Selecione um dia da semana"
+                        value={week_day}
+                        onChange={(event) => {setWeekDay(event.target.value)}}
                         options={[
                             { value: '0', label: 'Domingo' },
                             { value: '1', label: 'Segunda-feira' },
@@ -34,24 +60,28 @@ function TeacherIndex() {
                             { value: '6', label: 'Sábado' },
                         ]}
                     />
-                    <FormField type="time" name="time" label="Horário" />
+                    <FormField
+                        name="time"
+                        label="Horário"
+                        value={time}
+                        onChange={(event) => {setTime(event.target.value)}}
+                        type="time"
+                    />
+
+                    <button type="submit">
+                        <BsSearch />
+                        Buscar
+                    </button>
                 </form>
             </PageHeader>
 
             <main>
                 <ul className="teachers-grid">
-                    <li className="point-box" >
-                        <TeacherItem />
-                    </li>
-                    <li className="point-box" >
-                        <TeacherItem />
-                    </li>
-                    <li className="point-box" >
-                        <TeacherItem />
-                    </li>
-                    <li className="point-box" >
-                        <TeacherItem />
-                    </li>
+                    {teachers.map((teacher: Teacher) => (
+                        <li key={teacher.id} className="point-box" >
+                            <TeacherItem teacher={teacher} />
+                        </li>
+                    ))}
                 </ul>
             </main>
         </div>

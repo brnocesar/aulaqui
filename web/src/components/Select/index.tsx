@@ -4,18 +4,19 @@ import './styles.css';
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     name: string;
     label: string;
+    disabledOptions?: string;
     options: Array<{
         value: string;
         label: string;
     }>;
 };
 
-const Select: React.FunctionComponent<SelectProps> = ({ name, label, options, ...rest}) => {
+const Select: React.FunctionComponent<SelectProps> = ({ name, label, disabledOptions, options, ...rest}) => {
     return (
         <div className="select-block">
             <label htmlFor={name}>{label}</label>
             <select value="" id={name} {...rest}>
-                <option value="" disabled hidden>Selecione uma matéria</option>
+                <option value="" disabled hidden>{disabledOptions}</option>
                 {options.map(option => (
                     <option 
                         key={option.value}

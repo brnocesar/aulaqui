@@ -1,12 +1,12 @@
 import React, { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import { RiErrorWarningLine } from 'react-icons/ri';
+import api from '../../services/api';
 import PageHeader from '../../components/PageHeader';
 import FormField from '../../components/FormField';
 import TextArea from '../../components/TextArea';
 import Select from '../../components/Select';
 import './styles.css';
-import api from '../../services/api';
 
 
 function TeacherCreate() {
@@ -95,6 +95,7 @@ function TeacherCreate() {
                         <Select
                             name="subject"
                             label="Matéria"
+                            disabledOptions="Selecione uma matéria"
                             value={subject}
                             onChange={(event) => {setSubject(event.target.value)}}
                             options={[
@@ -120,6 +121,7 @@ function TeacherCreate() {
                                 <Select
                                     name="week_day"
                                     label="Dia da semana"
+                                    disabledOptions="Selecione um dia da semana"
                                     value={scheduleItem.week_day}
                                     onChange={event => setScheduleItemValue(index, 'week_day', event.target.value)}
                                     options={availableOptions}
