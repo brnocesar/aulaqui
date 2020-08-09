@@ -1,0 +1,27 @@
+.batatinha {
+    font-size: 60%;
+
+    --color-background: #dddddd;
+    --color-primary-lighter: #fdb5b5;
+    --color-primary-light: #faa1a1;
+    --color-primary: #eb8d8d;
+    --color-primary-dark: #b95454;
+    --color-primary-darker: #8a2e2e;
+    --color-secondary-lighter: #c3dae0;
+    --color-secondary-light: #81c1d4;
+    --color-secondary: #038eb8;
+    --color-secondary-dark: #0382a1;
+    --color-secondary-darker: #014a5c;
+    --color-warning: #ebd265;
+    --color-warning-dark: #d1bb57;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #ffcece;
+    --color-text-title: #4e1616;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #635050;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+}
