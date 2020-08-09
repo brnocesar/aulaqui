@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import { Ionicons as IoIcon, MaterialCommunityIcons as McIcon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import landingImg from '../../assets/images/landing-logo.png';
+import api from '../../services/api';
 
 
 function Landing() {
     const navigation = useNavigation();
+    const [totalConnections, setTotalConnections] = useState(0);
 
     function handleNavigateToStudentPage() {
         navigation.navigate('Student');
@@ -16,6 +18,12 @@ function Landing() {
     function handleNavigateToTeacherCreatePage() {
         navigation.navigate('TeacherCreate');
     }
+
+    useEffect(() => {
+        api.get('conexoes').then(response => {
+            setTotalConnections(response.data.total);
+        });
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -47,7 +55,7 @@ function Landing() {
             </View>
 
             <Text style={styles.totalConnections}>
-                Total de {'xxx'} conexões já realizadas {' '}
+                Total de {totalConnections} conexões já realizadas {' '}
                 <IoIcon name="ios-heart" style={styles.connectionsIcon} />
             </Text>
 
