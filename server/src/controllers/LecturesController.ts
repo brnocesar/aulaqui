@@ -39,7 +39,6 @@ export default class LecturesController {
             .join('users', 'lectures.user_id', '=', 'users.id')
             .select(['lectures.*', 'users.*']);
 
-        // console.log('=> ', lectures);
         return response.status(200).json(lectures);
     }
 
