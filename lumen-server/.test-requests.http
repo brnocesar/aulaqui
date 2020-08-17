@@ -4,11 +4,10 @@
 
 # MATERIAS
 @id=1
-
-http://localhost:{{port}}/api/materias/
+http://localhost:{{port}}/api/materias
+# http://localhost:{{port}}/api/materias?pag
 
 ###
-
 POST http://localhost:{{port}}/api/materias/ HTTP/1.1
 content-type: application/json
 
@@ -17,7 +16,6 @@ content-type: application/json
 }
 
 ###
-
 PUT http://localhost:{{port}}/api/materias/{{id}} HTTP/1.1
 content-type: application/json
 
@@ -26,22 +24,23 @@ content-type: application/json
 }
 
 ###
-
 DELETE http://localhost:{{port}}/api/materias/{{id}} HTTP/1.1
 content-type: application/json
 
+###
+http://localhost:{{port}}/api/materias/{{id}}/professores
 
+###
+http://localhost:{{port}}/api/materias/{{id}}/aulas
 
 
 # PROFESSORES
 @id=1
-
 ###
-
 http://localhost:{{port}}/api/professores/
+# http://localhost:{{port}}/api/professores?pag
 
 ###
-
 POST http://localhost:{{port}}/api/professores/ HTTP/1.1
 content-type: application/json
 
@@ -53,7 +52,6 @@ content-type: application/json
 }
 
 ###
-
 PUT http://localhost:{{port}}/api/professores/{{id}} HTTP/1.1
 content-type: application/json
 
@@ -65,21 +63,24 @@ content-type: application/json
 }
 
 ###
-
 DELETE http://localhost:{{port}}/api/professores/{{id}} HTTP/1.1
 content-type: application/json
+
+###
+http://localhost:{{port}}/api/professores/{{id}}/materias
+
+###
+http://localhost:{{port}}/api/professores/{{id}}/aulas
+
 
 
 
 # AULAS
 @id=1
-
 ###
-
 http://localhost:{{port}}/api/aulas/
 
 ###
-
 POST http://localhost:{{port}}/api/aulas/ HTTP/1.1
 content-type: application/json
 
@@ -93,7 +94,6 @@ content-type: application/json
 }
 
 ###
-
 PUT http://localhost:{{port}}/api/aulas/{{id}} HTTP/1.1
 content-type: application/json
 
@@ -105,6 +105,5 @@ content-type: application/json
 }
 
 ###
-
 DELETE http://localhost:{{port}}/api/aulas/{{id}} HTTP/1.1
 content-type: application/json

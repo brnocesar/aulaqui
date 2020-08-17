@@ -27,6 +27,9 @@ $router->group(['prefix' => '/api'], function () use ($router) {
         $router->get('/{id}', 'MateriaController@show');
         $router->put('/{id}', 'MateriaController@update');
         $router->delete('/{id}', 'MateriaController@destroy');
+
+        $router->get('/{materia_id}/professores', 'ProfessorController@indexByMateria');
+        $router->get('/{materia_id}/aulas', 'AulaController@indexByMateria');
     });
 
     $router->group(['prefix' => '/professores'], function () use ($router) {
@@ -35,6 +38,9 @@ $router->group(['prefix' => '/api'], function () use ($router) {
         $router->get('/{id}', 'ProfessorController@show');
         $router->put('/{id}', 'ProfessorController@update');
         $router->delete('/{id}', 'ProfessorController@destroy');
+
+        $router->get('/{professor_id}/materias', 'MateriaController@indexByProfessor');
+        $router->get('/{professor_id}/aulas', 'AulaController@indexByProfessor');
     });
 
     $router->group(['prefix' => '/aulas'], function () use ($router) {

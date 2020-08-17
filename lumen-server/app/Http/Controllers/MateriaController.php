@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aula;
 use App\Models\Materia;
+use App\Models\Professor;
 use Illuminate\Http\Request;
 
 class MateriaController extends Controller
@@ -14,16 +16,19 @@ class MateriaController extends Controller
 
     public function index(Request $request)
     {
-        // return json_encode(Materia::paginate($request->per_page), JSON_UNESCAPED_SLASHES);
         return response()->json($this->search($request), 200);
     }
 
     private function search(Request $request)
     {
-        // professor
-        // preço
-        // horário
-        return Materia::all();
+        $materias = Materia::where('id', '>', 0)->orderBy('nome', 'asc');
+
+        if ($request->has('pag')) {
+            $perPage = is_numeric($request->per_pag) ? $request->per_pag : '';
+            return $materias->orderBy('nome', 'asc')->paginate( $perPage );
+        }
+
+        return $materias->get();
     }
 
     public function store(Request $request)
@@ -68,5 +73,12 @@ class MateriaController extends Controller
         $materia->delete();
 
         return response()->json([], 204);
+    }
+
+    public function indexByProfessor(int $professor_id)
+    {
+        $professor = Professor::find($professor_id);
+
+        return is_null($professor) ? [] : $professor->materias;
     }
 }

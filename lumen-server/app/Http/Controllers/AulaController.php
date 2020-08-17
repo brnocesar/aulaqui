@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aula;
+use App\Models\Materia;
+use App\Models\Professor;
 use Illuminate\Http\Request;
 
 class AulaController extends Controller
@@ -24,10 +26,14 @@ class AulaController extends Controller
 
     private function search(Request $request)
     {
-        // materias
-        // aulas
-        // horário (?)
-        return Aula::all();
+        $aulas = Aula::where('id', '>', 0)->orderBy('dia', 'asc')->orderBy('inicio', 'asc');
+
+        if ($request->has('pag')) {
+            $perPage = is_numeric($request->per_pag) ? $request->per_pag : '';
+            return $aulas->orderBy('nome', 'asc')->paginate( $perPage );
+        }
+
+        return $aulas->get();
     }
 
     public function store(Request $request)
@@ -74,5 +80,20 @@ class AulaController extends Controller
             [],
             $recurso == 0 ? 404 : 204
         );
+    }
+
+    // decidir se vai paginar essas
+    public function indexByProfessor(int $professor_id)
+    {
+        $professor = Professor::find($professor_id);
+
+        return is_null($professor) ? [] : $professor->aulas;
+    }
+
+    public function indexByMateria(int $materia_id)
+    {
+        $materia = Materia::find($materia_id);
+
+        return is_null($materia) ? [] : $materia->aulas;
     }
 }
