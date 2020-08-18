@@ -14,10 +14,26 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
     return (
         <header className="page-header">
             <div className="top-bar-container">
+                <div>
                 <Link to="/">
-                    <FaLongArrowAltLeft />
+                    <img src={logo} alt="Logo"/>
                 </Link>
-                <img src={logo} alt="Logo"/>
+                </div>
+
+                <div className="header-links">
+                    <Link to="/professores">
+                        Professores
+                    </Link>
+                    <Link to="/aulas">
+                        Aulas
+                    </Link>
+                    <Link to="/cadastrar">
+                        Cadastro
+                    </Link>
+                    <Link to="/mobile">
+                        Mobile
+                    </Link>
+                </div>
             </div>
 
             <div className="header-content">

@@ -6,6 +6,7 @@ import Select from '../../components/Select';
 import FormField from '../../components/FormField';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import './styles.css';
+import FakeTeacherItem from '../../components/FakeTeacherItem';
 
 
 function TeacherIndex() {
@@ -38,10 +39,18 @@ function TeacherIndex() {
                         disabledOptions="Selecione uma matéria"
                         value={subject}
                         onChange={(event) => {setSubject(event.target.value)}}
+                        // options={[
+                        //     { value: 'Artes', label: 'Artes' },
+                        //     { value: 'Física', label: 'Física' },
+                        //     { value: 'Filosofia', label: 'Filosofia' },
+                        // ]}
                         options={[
-                            { value: 'Artes', label: 'Artes' },
-                            { value: 'Física', label: 'Física' },
-                            { value: 'Filosofia', label: 'Filosofia' },
+                            { value: 'a', label: 'Isso' },
+                            { value: 'b', label: 'não' },
+                            { value: 'c', label: 'vai' },
+                            { value: 'd', label: 'funcionar.' },
+                            { value: 'e', label: 'API' },
+                            { value: 'f', label: '"desligada".' },
                         ]}
                     />
                     <Select
@@ -77,11 +86,17 @@ function TeacherIndex() {
 
             <main>
                 <ul className="teachers-grid">
-                    {teachers.map((teacher: Teacher) => (
+                    {/* {teachers.map((teacher: Teacher) => (
                         <li key={teacher.id} className="point-box" >
-                            <TeacherItem teacher={teacher} />
+                        <TeacherItem teacher={teacher} />
                         </li>
-                    ))}
+                    ))} */}
+                    <FakeTeacherItem />
+                    <FakeTeacherItem />
+                    <FakeTeacherItem />
+                    <FakeTeacherItem />
+                    <FakeTeacherItem />
+                    <FakeTeacherItem />
                 </ul>
             </main>
         </div>

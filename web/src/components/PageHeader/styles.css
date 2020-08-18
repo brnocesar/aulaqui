@@ -8,7 +8,8 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: var(--color-text-in-primary);
     padding: 1.6rem 0;
@@ -28,8 +29,22 @@
     opacity: 0.7;
 }
 
-.page-header .top-bar-container > img{
-    height: 3rem;
+.page-header .top-bar-container a img {
+    height: 3.5rem;
+}
+
+.page-header .top-bar-container .header-links {
+    display: flex;
+    flex-direction: row;
+    margin: 5rem 0;
+}
+
+.page-header .top-bar-container .header-links a {
+    margin-left: 2rem;
+    font: 500 2.4rem Ubuntu;
+    display: block;
+    color: var(--color-secondary-darker);
+    text-decoration: none;
 }
 
 .page-header .header-content {
@@ -60,6 +75,12 @@
 
     .page-header .top-bar-container {
         max-width: 1100px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .page-header .top-bar-container .header-links {
+        margin: 0 0;
     }
 
     .page-header .header-content {
