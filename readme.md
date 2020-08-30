@@ -18,7 +18,7 @@ Nesta edição a aplicação é um marketplace para conectar professores e aluno
 | GET | `/conexoes` | Retorna o número de conexões realizadas | - |
 | POST | `/conexoes` | Persiste o registro de um novo Ponto de coleta | - |
 
-:warning: Foi desenvolvida um **API em Lumen** com a mesma temática, mais recursos e seguindo o padrão RESTful. Acesse seu repositório [aqui](https://github.com/brnocesar/api-lumen-aulaqui).
+:warning: Foi desenvolvida uma **API em Lumen** com a mesma temática, mais recursos e seguindo o padrão RESTful. Acesse o repositório [aqui](https://github.com/brnocesar/api-lumen-aulaqui).
 
 ### :desktop_computer: _Web_
 
@@ -31,6 +31,6 @@ A maior parte das funcionalidades está disponível na versão _web_:
 - entrar em contato com um professor através do WhatsApp
 
 ### :iphone: _Mobile_
-A versão _mobile_ permite buscar buscar professores filtrando-os, entrar em contato pelo WhatsApp e favoritá-los. Abaixo são apresentadas as telas da aplicação:
+A versão _mobile_ permite buscar professores filtrando-os, entrar em contato pelo WhatsApp e favoritá-los. Abaixo são apresentadas as telas da aplicação:
 
 <p><img src="./imagens/aulaqui-mobile.png" alt="Telas da versão mobile"></p>
